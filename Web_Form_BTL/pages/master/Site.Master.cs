@@ -13,8 +13,10 @@ namespace Web_Form_BTL.pages.master
         protected void Page_Load(object sender, EventArgs e)
         {
             NguoiDung nguoiDung = Session["NguoiDung"] as NguoiDung;
+            btnDangXuat.Visible = nguoiDung != null;
+
             //chua dang nhap
-            if(nguoiDung == null)
+            if (nguoiDung == null)
             {
                 LinkLichSuDatPhong.Visible = false;
                 LinkTaiKhoan.Visible = false;
@@ -48,6 +50,12 @@ namespace Web_Form_BTL.pages.master
                 }
             }
             
+        }
+      protected void btnDangXuat_click(object sender, EventArgs e)
+        {
+            Session.Remove("NguoiDung");
+            Response.Redirect("~/pages/TrangChu/TrangChu.aspx", false);
+            Context.ApplicationInstance.CompleteRequest();
         }
     }
 }

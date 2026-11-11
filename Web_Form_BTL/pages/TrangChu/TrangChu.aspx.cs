@@ -32,7 +32,7 @@ namespace Web_Form_BTL.pages.TrangChu
         }
         protected void btnTimKiem_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/pages/QuanTri/QuanTri.aspx");
+            Response.Redirect("");
         }
     }
 }

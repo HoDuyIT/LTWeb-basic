@@ -22,7 +22,7 @@
                 <p>Số người</p>
                 <asp:DropDownList ID="ddlSoNguoi" runat="server" CssClass="search-input">
                     <asp:ListItem Value="0">Tất cả</asp:ListItem>
-                    <asp:ListItem Value="1">1 người</asp:ListItem>
+                    <asp:ListItem Value="1">1 người</asp:ListItem>  
                     <asp:ListItem Value="2">2 người</asp:ListItem>
                     <asp:ListItem Value="3">3 người</asp:ListItem>
                     <asp:ListItem Value="4">4 người</asp:ListItem>
