@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Web_Form_BTL.Global" Language="C#" %>

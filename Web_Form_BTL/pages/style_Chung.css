@@ -1,0 +1,258 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    font-size: 16px;
+    background-color: #e2dede;
+}
+/*-------------------------HEADER Chung cho ca bai--------------------------*/
+.header {
+    height: 90px;
+    background-color: #eeeeee;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.header:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+.container_header {
+    height: 50px;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo_Hotel {
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    object-fit: contain;
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.brand_Hotel {
+    margin-left: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #1e46ff;
+}
+
+.container_header a {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+.menuAdmin {
+    display: flex;
+    gap: 20px;
+}
+.box{
+    display: flex;
+    height: 50px;
+    padding: 0 10px;
+    background-color: #54beff;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxTK {
+    display: flex;
+    height: 50px;
+    padding: 0 10px;
+    border-color: black;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.btnLogOut {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    border-color: #54beff;
+}
+
+.txtLogout {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+/*-------------------------Het Phan HEADER Chung cho ca bai--------------------------*/
+
+
+
+/*---------Trang Chu-------------------*/
+.hero_TrangChu {
+    height: 200px;
+    background-color: #1e46ff;
+    align-content: center
+}
+
+.text_hero {
+    margin-top: 50px;
+    padding-left: 50px;
+}
+
+.text_hero h1 {
+    color: white;
+    font-size: 42px;
+    line-height: 20px;
+}
+
+.text_hero h3 {
+    color: white;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+.search_TrangChu {
+    height: 120px;
+    display: flex;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 30px;
+    border-radius: 15px;
+    background-color: #eeeeee;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    align-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.search_TrangChu:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.NgayNhan {
+    margin-left: 50px;
+}
+
+.search_TrangChu p {
+    font-size: 20px;
+    line-height: 20px;
+}
+
+
+
+.dateInput {
+    margin-top: 15px;
+    width: 240px;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 20px;
+    color: #808080;
+}
+
+.InputLoaiPhong {
+    margin-top: 15px;
+    width: 240px;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 20px;
+    color: #808080;
+}
+
+.search-input {
+    margin-top: 15px;
+    width: 240px;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 20px;
+    color: #808080;
+}
+
+.btn-search {
+    display: block;
+    
+    width: 150px;
+    margin-top: 35px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    color: black;
+    background-color: #54beff;
+    align-content: center;
+    cursor: pointer;
+}
+
+
+.txtSearchTong {
+    margin-left: 50px;
+    font-size: 36px;
+    margin-top: 100px;
+}
+
+.grid-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 90%;
+    width: calc(100% - 100px);
+    margin: 50px auto;
+}
+
+.hotel-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.hotel-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.hotel-info {
+    padding: 15px;
+}
+
+.hotel-info h3 {
+    margin-bottom: 10px;
+}
+
+.hotel-stars {
+    color: orange;
+    margin-bottom: 10px;
+}
+
+.lsP {
+    color: #1e46ff;
+    font-size: 240px;
+}
+

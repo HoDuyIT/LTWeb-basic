@@ -1,0 +1,19 @@
+
+# Visual Studio
+.vs/
+**/.vs/
+
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# NuGet
+packages/
+
+# User-specific
+*.user
+*.suo
+*.vsidx
+
+# Cache
+*.cache

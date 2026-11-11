@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="Web_Form_BTL.pages.master.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="<%= ResolveUrl("~/pages/style_Chung.css") %>" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!--header chung cho cac phan lien quan-->
+        <section class="header">
+            <div class="container_header">
+                <a href="../TrangChu/TrangChu.aspx">
+                    <div class="logo_Hotel">
+                        <img class="logo" src="<%= ResolveUrl("~/pages/image/hotel.png") %>" /> 
+                        <b><p class="brand_Hotel">LTW.Booking.</p></b>
+                    </div>
+                </a>
+                <div class="menuAdmin">
+                    <asp:HyperLink ID="LinkQLPhong" runat="server"
+                        NavigateUrl="~/pages/QLPhong/QLPhong.aspx"
+                        CssClass="box">
+                        Quan Ly Phong
+                    </asp:HyperLink>
+                    <asp:HyperLink ID="LinkQLDatPhong" runat="server"
+                        NavigateUrl="~/pages/QLDatPhong/QLDatPhong.aspx"
+                        CssClass="box">
+                        Quan Ly Dat Phong
+                    </asp:HyperLink>
+                    <asp:HyperLink ID="LinkQLKhachHang" runat="server"
+                        NavigateUrl="~/pages/QLKhachHang/QLKhachHang.aspx"
+                        CssClass="box">
+                        Quan Ly Khach Hang
+                    </asp:HyperLink>
+                </div>
+                <div class="menu">
+                   
+                    <asp:HyperLink ID="LinkTrangChu" runat="server"
+                        NavigateUrl="~/pages/TrangChu/TrangChu.aspx"
+                        CssClass="box">
+                        Trang Chu
+                    </asp:HyperLink>
+                    
+
+                    <asp:HyperLink ID="LinkLichSuDatPhong" runat="server"
+                        NavigateUrl="../LichSuDatPhong/LichSuDatPhong.aspx"
+                        CssClass="box">
+                        Lịch Sử Đặt Phòng
+                    </asp:HyperLink>                    
+                    <asp:HyperLink ID="LinkTaiKhoan" runat="server"
+                        NavigateUrl="~/pages/TaiKhoan/TaiKhoan.aspx"
+                        CssClass="boxTK">
+                        Tai Khoan
+                    </asp:HyperLink>
+                    
+                    <asp:HyperLink ID="LinkDangNhap" runat="server"
+                        NavigateUrl="../DangNhap/DangNhap.aspx"
+                        CssClass="box">
+                        Dang Nhap
+                    </asp:HyperLink>
+
+                    <button class="btnLogOut">
+                        <img class="logo" src="<%= ResolveUrl("~/pages/image/log-out.png") %>" /> 
+                        <b><p class="txtLogout">Log Out</p></b>
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+        <div>
+            <%-- cho nội dung chính dde cac page khac tro vao day thi no van duoc hieu ung tu Css chi ca them vao css tong thoi --%>
+            <asp:ContentPlaceHolder ID="MainHolder" runat="server">
+
+            </asp:ContentPlaceHolder> 
+        </div>
+
+    </form>
+</body>
+</html>
