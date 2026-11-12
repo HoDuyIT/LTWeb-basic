@@ -66,7 +66,7 @@
                         Dang Nhap
                     </asp:HyperLink>
 
-                    <button class="btnLogOut">
+                    <button ID= "btnDangXuat" class="btnLogOut" runat="server" onserverclick="btnDangXuat_click">
                         <img class="logo" src="<%= ResolveUrl("~/pages/image/log-out.png") %>" /> 
                         <b><p class="txtLogout">Log Out</p></b>
                     </button>

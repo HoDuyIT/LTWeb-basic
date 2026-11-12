@@ -39,6 +39,7 @@ namespace Web_Form_BTL.pages.TrangChu
         }
         protected void btnTimKiem_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             string loaiPhong = txtLoaiPhong.Text.Trim();
             
             string SoNguoi = ddlSoNguoi.SelectedValue.Trim();
@@ -48,6 +49,9 @@ namespace Web_Form_BTL.pages.TrangChu
             string soluongKhachSan = Grid_Load(loaiPhong, SoNguoi);
 
             lblTongSearch.Text = soluongKhachSan;
+=======
+            Response.Redirect("");
+>>>>>>> 41faa2f56f7e1bac0c5d829a3c9020053e7d4dad
         }
     }
 }
