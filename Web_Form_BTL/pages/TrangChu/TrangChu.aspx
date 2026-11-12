@@ -1,4 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/master/Site.Master" AutoEventWireup="true" CodeBehind="TrangChu.aspx.cs" Inherits="Web_Form_BTL.pages.TrangChu.TrangChu" %>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <script src="<%= ResolveUrl("~/pages/TrangChu/ScriptTrangChu.js") %>"></script>
+</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainHolder" runat="server">
     <section class="hero_TrangChu">
         <div class="text_hero">
@@ -8,11 +13,11 @@
         <div class="search_TrangChu">
             <div class="NgayNhan">
                 <p>Ngày nhận phòng</p>
-                <asp:TextBox ID="txtNgayNhan" runat="server" TextMode="Date" CssClass="dateInput"></asp:TextBox>
+                <asp:TextBox ID="txtNgayNhan" runat="server" TextMode="Date" CssClass="dateInput" ClientIDMode="Static"></asp:TextBox>
             </div>
             <div class="NgayTra">
                 <p>Ngày trả phòng</p>
-                <asp:TextBox ID="txtNgayTra" runat="server" TextMode="Date" CssClass="dateInput"></asp:TextBox>
+                <asp:TextBox ID="txtNgayTra" runat="server" TextMode="Date" CssClass="dateInput" ClientIDMode="Static"></asp:TextBox>
             </div>
             <div class="LoaiPhong">
                 <p>Loại phòng</p>
@@ -30,7 +35,7 @@
                 </asp:DropDownList>
             </div>
             <div class="btn_search">
-                <asp:Button ID="btnTimKiem" Text="Tìm kiếm" runat="server" CssClass="btn-search" OnClick="btnTimKiem_Click"></asp:Button>
+                <asp:Button ID="btnTimKiem" Text="Tìm kiếm" runat="server" CssClass="btn-search" OnClientClick="return checkDate();" OnClick="btnTimKiem_Click" ></asp:Button>
             </div>
         </div>
     </section>

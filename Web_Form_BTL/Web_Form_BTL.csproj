@@ -91,6 +91,7 @@
     <Content Include="pages\image\sunrise.jpg" />
     <Content Include="pages\LichSuDatPhong\LichSuDatPhong.aspx" />
     <Content Include="pages\style_Chung.css" />
+    <Content Include="pages\TrangChu\ScriptTrangChu.js" />
     <Content Include="pages\TrangChu\TrangChu.aspx" />
     <Content Include="pages\ChiTietPhong\ChiTietPhong.aspx" />
     <Content Include="Web.config" />
