@@ -78,6 +78,7 @@
     <Content Include="pages\QLDatPhong\QLDatPhong.aspx" />
     <Content Include="pages\QLKhachHang\QLKhachHang.aspx" />
     <Content Include="pages\QLPhong\QLPhong.aspx" />
+    <Content Include="pages\QLPhong\QLPhong.css" />
     <Content Include="pages\TaiKhoan\TaiKhoan.aspx" />
     <Content Include="pages\image\grand.jpg" />
     <Content Include="pages\image\green.jpg" />
