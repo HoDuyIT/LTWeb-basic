@@ -10,6 +10,72 @@ namespace Web_Form_BTL.appData
 {
     public class NguoiDungDAL
     {
+        public bool DangKy(NguoiDung nguoiDung)
+        {
+            using (SQLiteConnection conn = DatabaseHelper.OpenConnection())
+            {
+                // Kiểm tra tên đăng nhập đã được sử dụng chưa.
+                string sqlKiemTra = @"
+                    SELECT COUNT(*)
+                    FROM NguoiDung
+                    WHERE TenDangNhap = @TenDangNhap;";
+
+                using (SQLiteCommand cmdKiemTra =
+                    new SQLiteCommand(sqlKiemTra, conn))
+                {
+                    cmdKiemTra.Parameters.AddWithValue(
+                        "@TenDangNhap",
+                        nguoiDung.TenDangNhap
+                    );
+
+                    long soTaiKhoan =
+                        Convert.ToInt64(cmdKiemTra.ExecuteScalar());
+
+                    if (soTaiKhoan > 0)
+                    {
+                        return false;
+                    }
+                }
+
+                // Thêm tài khoản mới. VaiTro được đặt cố định là KhachHang.
+                string sqlThem = @"
+                    INSERT INTO NguoiDung
+                        (TenDangNhap, MatKhau, HoTen, Email, SoDienThoai, VaiTro)
+                    VALUES
+                        (@TenDangNhap, @MatKhau, @HoTen, @Email, @SoDienThoai, @VaiTro);";
+
+                using (SQLiteCommand cmdThem =
+                    new SQLiteCommand(sqlThem, conn))
+                {
+                    cmdThem.Parameters.AddWithValue(
+                        "@TenDangNhap", nguoiDung.TenDangNhap);
+
+                    cmdThem.Parameters.AddWithValue(
+                        "@MatKhau", nguoiDung.MatKhau);
+
+                    cmdThem.Parameters.AddWithValue(
+                        "@HoTen", nguoiDung.HoTen);
+
+                    cmdThem.Parameters.AddWithValue(
+                        "@Email",
+                        string.IsNullOrWhiteSpace(nguoiDung.Email)
+                            ? (object)DBNull.Value
+                            : nguoiDung.Email);
+
+                    cmdThem.Parameters.AddWithValue(
+                        "@SoDienThoai",
+                        string.IsNullOrWhiteSpace(nguoiDung.SoDienThoai)
+                            ? (object)DBNull.Value
+                            : nguoiDung.SoDienThoai);
+
+                    cmdThem.Parameters.AddWithValue(
+                        "@VaiTro", "KhachHang");
+
+                    return cmdThem.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
         public NguoiDung DangNhap(string tenDangNhap, string matKhau)
         {
             NguoiDung nguoiDung = null;
@@ -69,6 +135,43 @@ namespace Web_Form_BTL.appData
                 }
             }
             return nguoiDungList;
+        }
+        public bool CapNhatThongTinCaNhan(
+    int id,
+    string hoTen,
+    string email,
+    string soDienThoai)
+        {
+            string sql = @"
+        UPDATE NguoiDung
+        SET
+            HoTen = @HoTen,
+            Email = @Email,
+            SoDienThoai = @SoDienThoai
+        WHERE Id = @Id;";
+
+            using (SQLiteConnection conn = DatabaseHelper.OpenConnection())
+            using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.Parameters.AddWithValue("@HoTen", hoTen);
+
+                cmd.Parameters.AddWithValue(
+                    "@Email",
+                    string.IsNullOrWhiteSpace(email)
+                        ? (object)DBNull.Value
+                        : email
+                );
+
+                cmd.Parameters.AddWithValue(
+                    "@SoDienThoai",
+                    string.IsNullOrWhiteSpace(soDienThoai)
+                        ? (object)DBNull.Value
+                        : soDienThoai
+                );
+
+                return cmd.ExecuteNonQuery() > 0;
+            }
         }
     }
 }
