@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="<%= ResolveUrl("~/pages/style_Chung.css") %>" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
-
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -19,56 +18,67 @@
             <div class="container_header">
                 <a href="../TrangChu/TrangChu.aspx">
                     <div class="logo_Hotel">
-                        <img class="logo" src="<%= ResolveUrl("~/pages/image/hotel.png") %>" /> 
-                        <b><p class="brand_Hotel">LTW.Booking.</p></b>
+                        <img class="logo" src="<%= ResolveUrl("~/pages/image/hotel.png") %>" />
+                        <b>
+                            <p class="brand_Hotel">LTW.Booking.</p>
+                        </b>
                     </div>
                 </a>
                 <div class="menuAdmin">
+                    <% if (LinkQLPhong.Visible) { %>
+                        <a class="box"
+                           href="<%= ResolveUrl("~/pages/QLKhachSan/QLKhachSan.aspx") %>">
+                            Quản lý phòng khách sạn
+                        </a>
+                    <% } %>
+
                     <asp:HyperLink ID="LinkQLPhong" runat="server"
                         NavigateUrl="~/pages/QLPhong/QLPhong.aspx"
                         CssClass="box">
-                        Quan Ly Phong
+                        Quản Lý Loại Phòng
                     </asp:HyperLink>
                     <asp:HyperLink ID="LinkQLDatPhong" runat="server"
                         NavigateUrl="~/pages/QLDatPhong/QLDatPhong.aspx"
                         CssClass="box">
-                        Quan Ly Dat Phong
+                        Quản Lý Đặt Phòng
                     </asp:HyperLink>
                     <asp:HyperLink ID="LinkQLKhachHang" runat="server"
                         NavigateUrl="~/pages/QLKhachHang/QLKhachHang.aspx"
                         CssClass="box">
-                        Quan Ly Khach Hang
+                        Quản Lý Khách Hàng
                     </asp:HyperLink>
                 </div>
                 <div class="menu">
-                   
+
                     <asp:HyperLink ID="LinkTrangChu" runat="server"
                         NavigateUrl="~/pages/TrangChu/TrangChu.aspx"
                         CssClass="box">
                         Trang Chu
                     </asp:HyperLink>
-                    
+
 
                     <asp:HyperLink ID="LinkLichSuDatPhong" runat="server"
                         NavigateUrl="../LichSuDatPhong/LichSuDatPhong.aspx"
                         CssClass="box">
                         Lịch Sử Đặt Phòng
-                    </asp:HyperLink>                    
+                    </asp:HyperLink>
                     <asp:HyperLink ID="LinkTaiKhoan" runat="server"
                         NavigateUrl="~/pages/TaiKhoan/TaiKhoan.aspx"
                         CssClass="boxTK">
                         Tai Khoan
                     </asp:HyperLink>
-                    
+
                     <asp:HyperLink ID="LinkDangNhap" runat="server"
                         NavigateUrl="../DangNhap/DangNhap.aspx"
                         CssClass="box">
                         Dang Nhap
                     </asp:HyperLink>
 
-                    <button ID= "btnDangXuat" class="btnLogOut" runat="server" onserverclick="btnDangXuat_click">
-                        <img class="logo" src="<%= ResolveUrl("~/pages/image/log-out.png") %>" /> 
-                        <b><p class="txtLogout">Log Out</p></b>
+                    <button id="btnDangXuat" class="btnLogOut" runat="server" onserverclick="btnDangXuat_click">
+                        <img class="logo" src="<%= ResolveUrl("~/pages/image/log-out.png") %>" />
+                        <b>
+                            <p class="txtLogout">Log Out</p>
+                        </b>
                     </button>
 
                 </div>
@@ -78,8 +88,7 @@
         <div>
             <%-- cho nội dung chính dde cac page khac tro vao day thi no van duoc hieu ung tu Css chi ca them vao css tong thoi --%>
             <asp:ContentPlaceHolder ID="MainHolder" runat="server">
-
-            </asp:ContentPlaceHolder> 
+            </asp:ContentPlaceHolder>
         </div>
 
     </form>
