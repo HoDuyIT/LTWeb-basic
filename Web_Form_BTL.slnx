@@ -1,6 +1,4 @@
 <Solution>
-  <Folder Name="/Solution Items/">
-    <File Path="fileChan.gitignore" />
-  </Folder>
+  <Folder Name="/Solution Items/" />
   <Project Path="Web_Form_BTL/Web_Form_BTL.csproj" Id="4d0a1e2e-acc8-4c9c-bc1b-af4dae9c67f2" />
 </Solution>

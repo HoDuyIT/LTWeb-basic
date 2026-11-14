@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/pages/master/Site.Master" AutoEventWireup="true" CodeBehind="TrangChu.aspx.cs" Inherits="Web_Form_BTL.pages.TrangChu.TrangChu" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    <script src="<%= ResolveUrl("~/pages/TrangChu/ScriptTrangChu.js") %>"></script>
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainHolder" runat="server">
@@ -26,7 +25,7 @@
             <div class="SoNguoi">
                 <p>Số người</p>
                 <asp:DropDownList ID="ddlSoNguoi" runat="server" CssClass="search-input">
-                    <asp:ListItem Value="0">Tất cả</asp:ListItem>
+                    <asp:ListItem Value="">Tất cả</asp:ListItem>
                     <asp:ListItem Value="1">1 người</asp:ListItem>  
                     <asp:ListItem Value="2">2 người</asp:ListItem>
                     <asp:ListItem Value="3">3 người</asp:ListItem>
@@ -73,7 +72,10 @@
                                 </strong>
                             </div>
 
-                            <a href="../ChiTietPhong/ChiTietPhong.aspx" class="btn-detail">Xem chi tiết</a>
+                            <a href="../ChiTietPhong/ChiTietPhong.aspx?idKhachSan=<%# Eval("idKhachSan") %>&&idLoaiPhong= <%#Eval("idLoaiPhong") %>" 
+                                class="btn-detail"
+                                onclick="return themNgayVaoLink(this);">
+                                >Xem chi tiết</a>
 
                         </div>
 
@@ -83,5 +85,6 @@
             </asp:Repeater>
         </div>
     </section>
+    <script src="<%= ResolveUrl("~/pages/TrangChu/ScriptTrangChu.js") %>"></script>
 
 </asp:Content>

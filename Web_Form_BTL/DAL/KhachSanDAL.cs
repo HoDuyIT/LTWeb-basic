@@ -10,35 +10,44 @@ namespace Web_Form_BTL.DAL
 {
     public class KhachSanDAL
     {
-        public static string queryNomal(string LoaiPhong, string SoNguoi, string where)
+        public static string queryNomal(string LoaiPhong,string SoNguoi, int? idKhachSan, int? idLoaiPhong, string where)
         {
-            if(LoaiPhong != null)
+            if(!string.IsNullOrEmpty(LoaiPhong))
             {
-                where += " AND lp.TenLoai LIKE '%"+ LoaiPhong +"%' ";
-
+                where += " AND lp.TenLoai LIKE '%" + LoaiPhong + "%' ";
             }
-            if(SoNguoi != null)
+            
+            if(!string.IsNullOrEmpty(SoNguoi))
             {
-                where += " AND lp.SoNguoiToiDa LIKE '%" + SoNguoi + "%' ";
+                where += " AND lp.SoNguoiToiDa = " + SoNguoi + " ";
             }
 
+            if(idKhachSan.HasValue)//kiem tra null hay khogn la qua thang hash nay neu co data thi true, nguoc lai false
+            {
+                where += " AND ks.Id = " + idKhachSan.Value + " ";
+            }
+
+            if (idLoaiPhong.HasValue)
+            {
+                where += " AND lp.Id = " + idLoaiPhong.Value + " "; 
+            }
             return where;
         }
 
-        public List<KhachSanView> GetAllKhachSanViews(string LoaiPhong,string SoNguoi)
+        public List<KhachSanView> GetAllKhachSanViews(string LoaiPhong = null, string SoNguoi = null, int? idKhachSan = null, int? idLoaiPhong = null)
         {
             List<KhachSanView> khachSanViewList = new List<KhachSanView>();
 
 
-            String sql = @" SELECT ks.Id, ks.Ten, ks.DiaChi, ks.SoSao, ks.HinhAnh, ks.MoTa, MIN(lp.GiaMoiDem) AS GiaTu,lp.TenLoai,lp.SoNguoiToiDa
+            String sql = @" SELECT ks.Id as idKhachSan , ks.Ten, ks.DiaChi, ks.SoSao, ks.HinhAnh, ks.MoTa, 
+                        lp.GiaMoiDem AS GiaTu,lp.TenLoai,lp.SoNguoiToiDa,lp.TienNghi,lp.Id as idLoaiPhong 
                         FROM KhachSan ks
                         LEFT JOIN LoaiPhong lp ON ks.Id = lp.KhachSanId ";
 
             String where = " Where 1=1 ";
 
-            where = queryNomal(LoaiPhong,SoNguoi,where);
+            where = queryNomal(LoaiPhong,SoNguoi,idKhachSan,idLoaiPhong,where);
 
-            where += " GROUP BY ks.Id, ks.Ten, ks.DiaChi, ks.SoSao, ks.HinhAnh, ks.MoTa ";
 
             sql += where;
 
@@ -52,7 +61,7 @@ namespace Web_Form_BTL.DAL
                         {
                             KhachSanView khachSanView = new KhachSanView
                             {
-                                Id = Convert.ToInt32(reader["Id"]),
+                                idKhachSan = Convert.ToInt32(reader["idKhachSan"]),
                                 Ten = reader["Ten"].ToString(),
                                 DiaChi = reader["DiaChi"].ToString(),
                                 SoSao = Convert.ToInt32(reader["SoSao"]),
@@ -60,7 +69,11 @@ namespace Web_Form_BTL.DAL
                                 MoTa = reader["MoTa"].ToString(),
                                 GiaTu = reader["GiaTu"] == DBNull.Value
                                     ? 0
-                                    : Convert.ToDecimal(reader["GiaTu"])
+                                    : Convert.ToDecimal(reader["GiaTu"]),
+                                TenLoai = reader["Tenloai"].ToString(),
+                                SoNguoiToiDa = Convert.ToInt32(reader["SoNguoiToiDa"]),
+                                TienNghi = reader["TienNghi"].ToString(),
+                                idLoaiPhong = Convert.ToInt32(reader["idLoaiPhong"])
                             };
                             khachSanViewList.Add(khachSanView);
                         }

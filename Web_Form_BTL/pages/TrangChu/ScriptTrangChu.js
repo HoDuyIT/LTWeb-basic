@@ -24,3 +24,20 @@
     }
    
 }
+
+function themNgayVaoLink(link) {
+    var ngayNhan = document.getElementById("txtNgayNhan").value;
+    var ngayTra = document.getElementById("txtNgayTra").value;
+
+    var url = new URL(link.href);
+
+    if (ngayNhan) {
+        url.searchParams.set("ngayNhan", ngayNhan);
+    }
+    if (ngayTra) {
+        url.searchParams.set("ngayTra", ngayTra);
+    }
+    link.href = url.href;
+
+    return true;
+}

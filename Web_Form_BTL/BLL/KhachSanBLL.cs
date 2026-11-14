@@ -9,11 +9,11 @@ namespace Web_Form_BTL.BLL
 {
     public class KhachSanBLL
     {
-        public List<KhachSanView> GetAllKhachSanViews(string LoaiPhong, string SoNguoi)
+        public List<KhachSanView> GetAllKhachSanViews(string LoaiPhong = null, string SoNguoi = null, int? idKhachSan = null, int? idLoaiPhong = null)
         {
             KhachSanDAL khachSanDAL = new KhachSanDAL();
 
-            return khachSanDAL.GetAllKhachSanViews(LoaiPhong,SoNguoi);
+            return khachSanDAL.GetAllKhachSanViews(LoaiPhong,SoNguoi,idKhachSan,idLoaiPhong);
         }
        
     }
