@@ -111,6 +111,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="moDels\modelView\KhachsHangView.cs" />
     <Compile Include="moDels\modelView\LichSuDatPhongView.cs" />
     <Compile Include="pages\Dangky\DangKy.aspx.cs">
       <DependentUpon>DangKy.aspx</DependentUpon>
