@@ -1,0 +1,27 @@
+﻿.ql-kh {
+    max-width : 1100px;
+    margin :32px auto;
+    pading:0 20px;
+}
+.ql-tim-kiem{
+    margin: 16px 0;
+}
+.ql-tim-kiem input[type=text]{
+    flex: 1 1 230px;
+}
+    .ql-tim-kiem p {
+        color: #43536b;
+    }
+
+.ql-nut {
+    padding: 10px 16px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background-color: #1e46c5;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
+    .ql-nut:hover {
+        background-color: #17389c;
+    }
