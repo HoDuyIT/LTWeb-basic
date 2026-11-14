@@ -17,5 +17,22 @@ namespace Web_Form_BTL.BLL
             return nguoiDungDAL.DangNhap(tenDangNhap, matKhau);
 
         }
+        public bool DangKy(NguoiDung nguoiDung)
+        {
+            return nguoiDungDAL.DangKy(nguoiDung);
+        }
+        public bool CapNhatThongTinCaNhan(
+           int id,
+           string hoTen,
+           string email,
+           string soDienThoai)
+        {
+            return nguoiDungDAL.CapNhatThongTinCaNhan(
+                id,
+                hoTen,
+                email,
+                soDienThoai
+            );
+        }
     }
 }
