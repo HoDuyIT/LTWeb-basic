@@ -8,6 +8,28 @@ namespace Web_Form_BTL.DAL
 {
     public class DatPhongDAL
     {
+        public void ThemDatPhong(DatPhong datPhong)
+        {
+            string sql = @"
+                INSERT INTO DatPhong
+                (NguoiDungId, LoaiPhongId, NgayNhan, NgayTra, SoKhach, SoPhongDat,TongTien, TrangThai)
+                VALUES
+                (@NguoiDungId, @LoaiPhongId, @NgayNhan, @NgayTra, @SoKhach, @SoPhongDat, @TongTien, @TrangThai);";
+            using (SQLiteConnection cnn = DatabaseHelper.OpenConnection())
+            using (SQLiteCommand cmd = new SQLiteCommand(sql, cnn))
+            {
+                cmd.Parameters.AddWithValue("@NguoiDungId", datPhong.NguoiDungId);
+                cmd.Parameters.AddWithValue("@LoaiPhongId", datPhong.LoaiPhongId);
+                cmd.Parameters.AddWithValue("@NgayNhan", datPhong.NgayNhan.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@NgayTra", datPhong.NgayTra.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@SoKhach", datPhong.SoKhach);
+                cmd.Parameters.AddWithValue("@SoPhongDat", datPhong.SoPhongDat);
+                cmd.Parameters.AddWithValue("@TongTien", datPhong.TongTien);
+                cmd.Parameters.AddWithValue("@TrangThai", datPhong.TrangThai);
+                
+                cmd.ExecuteNonQuery();
+            }
+        }
         public List<DatPhong> GetAllDatPhong()
         {
             List<DatPhong> datPhongList = new List<DatPhong>();
@@ -32,7 +54,6 @@ namespace Web_Form_BTL.DAL
                 {
                     DatPhong datPhong = new DatPhong
                     {
-                        Id = Convert.ToInt32(reader["Id"]),
                         NguoiDungId = Convert.ToInt32(reader["NguoiDungId"]),
                         LoaiPhongId = Convert.ToInt32(reader["LoaiPhongId"]),
                         NgayNhan = Convert.ToDateTime(reader["NgayNhan"]),

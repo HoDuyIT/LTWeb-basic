@@ -16,4 +16,4 @@ packages/
 *.vsidx
 
 # Cache
-*.cache
+*.cache/Web_Form_BTL/appData/HotelBooking.db

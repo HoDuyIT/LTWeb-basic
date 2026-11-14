@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Web_Form_BTL.moDels.modelView;
 using Web_Form_BTL.BLL;
+using Web_Form_BTL.moDels;
+using Web_Form_BTL.moDels.modelView;
 
 namespace Web_Form_BTL.pages
 {
@@ -30,8 +32,14 @@ namespace Web_Form_BTL.pages
             string dateNhan = Request.QueryString["ngayNhan"];
             string dateTra = Request.QueryString["ngayTra"];
 
-            txtNgayNhan.Text = dateNhan;
-            txtNgayTra.Text = dateTra;
+            if(dateNhan != null)
+            {
+                txtNgayNhan.Text = dateNhan;
+            }
+            if(dateTra != null)
+            {
+                txtNgayTra.Text = dateTra;
+            }
 
             decimal giaPhong = danhSach[0].GiaTu;
 
@@ -64,7 +72,44 @@ namespace Web_Form_BTL.pages
         
         protected void btnXacNhanDatPhong_Click(object sender, EventArgs e)
         {
+            List < KhachSanView > danhSach = new List<KhachSanView>();
+            danhSach = ds();        
+            DateTime ngayNhan = Convert.ToDateTime(txtNgayNhan.Text);
 
+            DateTime ngayTra = Convert.ToDateTime(txtNgayTra.Text);
+
+            TimeSpan soNgay = ngayTra - ngayNhan;
+
+            float Tong = soNgay.Days * (float)danhSach[0].GiaTu;
+
+            NguoiDung nguoiDung = Session["NguoiDung"] as NguoiDung;
+
+            if (nguoiDung == null)
+            {
+                Response.Redirect("~/pages/DangNhap/DangNhap.aspx");
+                return;
+            }
+
+
+            int nguoiDungId = nguoiDung.Id;
+
+
+
+            // Tiếp tục xử lý đặt phòng
+            DatPhong datPhong = new DatPhong
+            {
+                NguoiDungId = nguoiDungId,
+                LoaiPhongId = Convert.ToInt32(danhSach[0].idLoaiPhong),
+                NgayNhan = Convert.ToDateTime(txtNgayNhan.Text),
+                NgayTra = Convert.ToDateTime(txtNgayTra.Text),
+                SoKhach = Convert.ToInt32(txtSoKhach.Text),
+                SoPhongDat = 1,
+                TongTien = Tong,
+                TrangThai = "ChoXacNhan"
+                
+            };
+            DatPhongBLL datPhongBLL = new DatPhongBLL();
+            datPhongBLL.ThemDatPhong(datPhong); 
         }
       
     }
