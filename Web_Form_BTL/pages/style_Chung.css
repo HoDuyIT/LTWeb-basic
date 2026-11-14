@@ -89,7 +89,10 @@ body {
     align-items: center;
     justify-content: center;
 }
-
+    .boxTK:hover {
+        background-color: #ddd;
+        color: black;
+    }
 
 .btnLogOut {
     height: 50px;
