@@ -21,6 +21,25 @@ namespace Web_Form_BTL.BLL
         {
             return nguoiDungDAL.DangKy(nguoiDung);
         }
+
+
+        public bool CapNhatThongTinQuanTri(
+           int id,
+           string hoTen,
+           string email,
+           string soDienThoai,
+           string tenDangNhap,
+           string matKhau)
+        {
+            return nguoiDungDAL.CapNhatThongTinQuanTri(
+                id,
+                hoTen,
+                email,
+                soDienThoai,
+                tenDangNhap,
+                matKhau
+            );
+        }
         public bool CapNhatThongTinCaNhan(
            int id,
            string hoTen,
@@ -34,5 +53,6 @@ namespace Web_Form_BTL.BLL
                 soDienThoai
             );
         }
+        
     }
 }

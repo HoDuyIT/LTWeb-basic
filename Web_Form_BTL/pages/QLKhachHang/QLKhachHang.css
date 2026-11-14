@@ -1,27 +1,133 @@
 ﻿.ql-kh {
-    max-width : 1100px;
-    margin :32px auto;
-    pading:0 20px;
+    max-width: 1100px;
+    margin: 32px auto;
+    padding: 0 16px;
+    color: #243650;
 }
-.ql-tim-kiem{
-    margin: 16px 0;
-}
-.ql-tim-kiem input[type=text]{
-    flex: 1 1 230px;
-}
-    .ql-tim-kiem p {
-        color: #43536b;
+
+    .ql-kh h1 {
+        margin: 0 0 20px;
+        font-size: 28px;
     }
 
-.ql-nut {
-    padding: 10px 16px;
-    border: 1px solid transparent;
-    border-radius: 6px;
-    background-color: #1e46c5;
-    color: white;
-    font: inherit;
-    cursor: pointer;
-}
-    .ql-nut:hover {
-        background-color: #17389c;
+    /* Khu vực tìm kiếm */
+    .ql-kh .ql-tim-kiem {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 18px;
     }
+
+        .ql-kh .ql-tim-kiem input[type="text"] {
+            flex: 1 1 230px;
+            min-width: 0;
+            box-sizing: border-box;
+            padding: 10px 12px;
+            border: 1px solid #c7d2e3;
+            border-radius: 6px;
+            background-color: #fff;
+            color: inherit;
+            font: inherit;
+        }
+
+            .ql-kh .ql-tim-kiem input[type="text"]:focus {
+                border-color: #1e46c5;
+                outline: 2px solid #cdd9ff;
+            }
+
+    .ql-kh .ql-nut {
+        padding: 10px 16px;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        background-color: #1e46c5;
+        color: #fff;
+        font: inherit;
+        cursor: pointer;
+    }
+
+        .ql-kh .ql-nut:hover {
+            background-color: #17389c;
+        }
+
+        .ql-kh .ql-nut:focus-visible {
+            outline: 2px solid #1e46c5;
+            outline-offset: 2px;
+        }
+
+    .ql-kh .ql-tim-kiem p {
+        flex-basis: 100%;
+        margin: 0;
+        color: #43536b;
+        font-size: 14px;
+    }
+
+    .ql-kh .ql-tim-kiem strong {
+        color: #1e46c5;
+    }
+
+    /* Bảng khách hàng */
+    .ql-kh .ql-bang {
+        overflow-x: auto;
+        border: 1px solid #d8e0ed;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+
+        .ql-kh .ql-bang table {
+            width: 100%;
+            min-width: 760px;
+            border-collapse: collapse;
+        }
+
+        .ql-kh .ql-bang th,
+        .ql-kh .ql-bang td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e7edf5;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .ql-kh .ql-bang th {
+            background-color: #eef3fb;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .ql-kh .ql-bang td {
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .ql-kh .ql-bang tbody tr:hover {
+            background-color: #f6f9fd;
+        }
+
+        .ql-kh .ql-bang tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .ql-kh .ql-bang td[colspan="5"] {
+            padding: 24px 16px;
+            color: #43536b;
+            text-align: center;
+        }
+
+/* Màn hình nhỏ */
+@media (max-width: 480px) {
+    .ql-kh {
+        margin: 20px auto;
+        padding: 0 12px;
+    }
+
+        .ql-kh h1 {
+            font-size: 23px;
+        }
+
+        .ql-kh .ql-tim-kiem input[type="text"],
+        .ql-kh .ql-tim-kiem .ql-nut {
+            flex: 0 0 100%;
+            box-sizing: border-box;
+        }
+}

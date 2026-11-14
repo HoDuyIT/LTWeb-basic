@@ -109,11 +109,11 @@ namespace Web_Form_BTL.appData
         public List<NguoiDung> GetAllNguoiDung()
         {
             List<NguoiDung> nguoiDungList = new List<NguoiDung>();
-            String sql = "SELECT * FROM NguoiDung";
+            String sql = "SELECT * FROM NguoiDung WHERE VaiTro = 'KhachHang'";
 
             using (SQLiteConnection conn = DatabaseHelper.OpenConnection())
             {
-                using(SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
                     {
@@ -172,6 +172,11 @@ namespace Web_Form_BTL.appData
 
                 return cmd.ExecuteNonQuery() > 0;
             }
+        }
+
+        internal bool CapNhatThongTinQuanTri(int id, string hoTen, string email, string soDienThoai, string tenDangNhap, string matKhau)
+        {
+            throw new NotImplementedException();
         }
     }
 }

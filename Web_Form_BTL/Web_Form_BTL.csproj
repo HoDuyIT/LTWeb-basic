@@ -80,6 +80,7 @@
     <Content Include="pages\LichSuDatPhong\LsuP.css" />
     <Content Include="pages\QLDatPhong\QLDatPhong.aspx" />
     <Content Include="pages\QLKhachHang\QLKhachHang.aspx" />
+    <Content Include="pages\QLKhachHang\QLKhachHang.css" />
     <Content Include="pages\QLKhachSan\QLKhachSan.aspx" />
     <Content Include="pages\QLPhong\QLPhong.aspx" />
     <Content Include="pages\QLPhong\QLPhong.css" />
@@ -111,7 +112,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="moDels\modelView\KhachsHangView.cs" />
     <Compile Include="moDels\modelView\LichSuDatPhongView.cs" />
     <Compile Include="pages\Dangky\DangKy.aspx.cs">
       <DependentUpon>DangKy.aspx</DependentUpon>
