@@ -29,7 +29,7 @@ function tinhTien() {
     document.getElementById("modalNgayNhan").textContent = nhan.toLocaleDateString("vi-VN");
     document.getElementById("modalNgayTra").textContent = tra.toLocaleDateString("vi-VN");
     document.getElementById("modalSoKhach").textContent = soKhach;
-
+    alert(document.getElementById("modalNgayNhan").textContent);
     lblTongModal.textContent =
         soDem + " x " + giaPhong.toLocaleString("vi-VN") + " = " + tongTien.toLocaleString("vi-VN") + " VND";
     // LẮNG NGHE SỰ KIỆN THAY ĐỔI NGÀY

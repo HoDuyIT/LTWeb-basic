@@ -95,7 +95,7 @@ namespace Web_Form_BTL.DAL
                     SELECT
                         @Ten, @DiaChi, @ThanhPho, @SoSao, @MoTa, @HinhAnh,
                         @TrangThai{giaTriChuSoHuu}
-                    FROM NguoiDung
+                    FROM NguoiDung  
                     WHERE Id = @AdminId AND VaiTro = 'Admin'";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
