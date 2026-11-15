@@ -146,5 +146,70 @@ namespace Web_Form_BTL.DAL
 
             return danhSach;
         }
+        public List<LichSuDatPhongView> GetAllLichSuDatPhong()
+        {
+            List<LichSuDatPhongView> danhSach = new List<LichSuDatPhongView>();
+
+            string sql = @"
+             SELECT
+            dp.Id AS MaDatPhong,
+            lp.TenLoai AS TenPhong,
+            ks.HinhAnh AS HinhAnh,
+            dp.TrangThai AS TrangThaiDat,
+            dp.NgayNhan,
+            dp.NgayTra,
+            CAST(
+                julianday(dp.NgayTra) - julianday(dp.NgayNhan)
+                AS INTEGER
+            ) AS SoDem,
+            dp.SoKhach,
+            dp.TongTien AS TongThanhToan
+            FROM DatPhong dp
+            INNER JOIN LoaiPhong lp ON dp.LoaiPhongId = lp.Id
+            INNER JOIN KhachSan ks ON lp.KhachSanId = ks.Id
+             ORDER BY dp.NgayNhan DESC, dp.Id DESC;";
+
+            using (SQLiteConnection cnn = DatabaseHelper.OpenConnection())
+            using (SQLiteCommand cmd = new SQLiteCommand(sql, cnn))
+            using (SQLiteDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    LichSuDatPhongView datPhong = new LichSuDatPhongView
+                    {
+                        MaDatPhong = Convert.ToInt32(reader["MaDatPhong"]),
+                        TenPhong = reader["TenPhong"].ToString(),
+                        HinhAnh = reader["HinhAnh"] == DBNull.Value
+                            ? ""
+                            : reader["HinhAnh"].ToString(),
+                        TrangThaiDat = reader["TrangThaiDat"].ToString(),
+                        NgayNhan = Convert.ToDateTime(reader["NgayNhan"]),
+                        NgayTra = Convert.ToDateTime(reader["NgayTra"]),
+                        SoDem = Convert.ToInt32(reader["SoDem"]),
+                        SoKhach = Convert.ToInt32(reader["SoKhach"]),
+                        TongThanhToan = Convert.ToDecimal(reader["TongThanhToan"])
+                    };
+
+                    danhSach.Add(datPhong);
+                }
+            }
+
+            return danhSach;
+        }
+        public bool XacNhanDatPhong(int maDatPhong)
+        {
+            string sql = @"
+        UPDATE DatPhong
+        SET TrangThai = 'DaXacNhan'
+        WHERE Id = @Id
+          AND TrangThai <> 'DaXacNhan';";
+
+            int soDong = DatabaseHelper.ExecuteNonQuery(
+                sql,
+                new SQLiteParameter("@Id", maDatPhong)
+            );
+
+            return soDong == 1;
+        }
     }
 }

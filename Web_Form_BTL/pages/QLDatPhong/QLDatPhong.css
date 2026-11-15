@@ -1,0 +1,98 @@
+﻿.ql-dat-phong {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    color: #17263c;
+}
+
+    .ql-dat-phong h1 {
+        margin-bottom: 18px;
+    }
+
+.qldp-bo-loc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.qldp-nut {
+    padding: 9px 14px;
+    border: 1px solid #cbd8ec;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #1e46a5;
+    font: inherit;
+    cursor: pointer;
+}
+
+    .qldp-nut:hover {
+        border-color: #1e46c5;
+    }
+
+.qldp-dang-loc,
+.qldp-xac-nhan {
+    border-color: #1e46c5;
+    background-color: #1e46c5;
+    color: #fff;
+}
+
+.qldp-lich-su {
+    padding: 18px;
+    border: 1px solid #d8e0ed;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+    .qldp-lich-su h2 {
+        margin-bottom: 14px;
+    }
+
+.qldp-thong-bao {
+    display: block;
+    margin-bottom: 12px;
+    color: #1e46a5;
+}
+
+    .qldp-thong-bao:empty {
+        display: none;
+    }
+
+.qldp-khung-bang {
+    overflow-x: auto;
+}
+
+    .qldp-khung-bang table {
+        width: 100%;
+        min-width: 880px;
+        border-collapse: collapse;
+    }
+
+    .qldp-khung-bang th,
+    .qldp-khung-bang td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #e5ebf4;
+        text-align: left;
+    }
+
+    .qldp-khung-bang th {
+        background-color: #edf3ff;
+    }
+
+    .qldp-khung-bang .qldp-trong {
+        padding: 22px 12px;
+        text-align: center;
+    }
+
+.qldp-phong {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qldp-anh {
+    width: 70px;
+    height: 48px;
+    border-radius: 5px;
+    object-fit: cover;
+}

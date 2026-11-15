@@ -79,6 +79,7 @@
     <Content Include="pages\image\muongthanh.jpg" />
     <Content Include="pages\LichSuDatPhong\LsuP.css" />
     <Content Include="pages\QLDatPhong\QLDatPhong.aspx" />
+    <Content Include="pages\QLDatPhong\QLDatPhong.css" />
     <Content Include="pages\QLKhachHang\QLKhachHang.aspx" />
     <Content Include="pages\QLKhachHang\QLKhachHang.css" />
     <Content Include="pages\QLKhachSan\QLKhachSan.aspx" />
