@@ -15,19 +15,33 @@ namespace Web_Form_BTL.pages
     {
         public List<KhachSanView> ds()
         {
-            int idKhachSan = Convert.ToInt32(Request.QueryString["idKhachSan"]);
-            int idLoaiPhong = Convert.ToInt32(Request.QueryString["idLoaiPhong"]);
+            int idKhachSan;
+            int idLoaiPhong;
 
-            List<KhachSanView> danhSach = new List<KhachSanView>();
+            if (!int.TryParse(Request.QueryString["idKhachSan"], out idKhachSan)
+                || !int.TryParse(Request.QueryString["idLoaiPhong"], out idLoaiPhong)
+                || idKhachSan <= 0
+                || idLoaiPhong <= 0)
+            {
+                return new List<KhachSanView>();
+            }
 
             KhachSanBLL khachSanBLL = new KhachSanBLL();
-            danhSach = khachSanBLL.GetAllKhachSanViews(idKhachSan: idKhachSan, idLoaiPhong: idLoaiPhong);
-            return danhSach;
+
+            return khachSanBLL.GetAllKhachSanViews(
+                idKhachSan: idKhachSan,
+                idLoaiPhong: idLoaiPhong
+            );
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<KhachSanView> danhSach = new List<KhachSanView>();
-            danhSach = ds();
+            List<KhachSanView> danhSach = ds();
+
+            if (danhSach.Count == 0)
+            {
+                Response.Redirect("~/pages/TrangChu/TrangChu.aspx");
+                return;
+            }
 
             string dateNhan = Request.QueryString["ngayNhan"];
             string dateTra = Request.QueryString["ngayTra"];

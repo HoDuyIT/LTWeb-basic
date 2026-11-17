@@ -38,8 +38,7 @@
                 <div>
                     <asp:Label runat="server" AssociatedControlID="txtThanhPho" Text="Thành phố" />
                     <asp:TextBox ID="txtThanhPho" runat="server" />
-                </div>
-
+                </div>               
                 <div>
                     <asp:Label runat="server" AssociatedControlID="ddlSoSao" Text="Số sao" />
                     <asp:DropDownList ID="ddlSoSao" runat="server">
@@ -103,7 +102,8 @@
                 CausesValidation="false" OnClick="btnTimKiem_Click" />
 
             <p>
-                Tìm thấy <strong><asp:Literal ID="litSoKetQua" runat="server" /></strong> khách sạn
+                Tìm thấy <strong>
+                    <asp:Literal ID="litSoKetQua" runat="server" /></strong> khách sạn
             </p>
         </asp:Panel>
 
@@ -130,15 +130,16 @@
                                     <asp:PlaceHolder runat="server"
                                         Visible='<%# !string.IsNullOrWhiteSpace(Convert.ToString(Eval("HinhAnh"))) %>'>
                                         <img class="ql-anh-phong"
-                                             src='<%#: ResolveUrl("~/pages/image/" + Uri.EscapeDataString(Convert.ToString(Eval("HinhAnh")))) %>'
-                                             alt='<%#: Eval("Ten") %>'
-                                             loading="lazy" />
+                                            src='<%#: ResolveUrl("~/pages/image/" + Uri.EscapeDataString(Convert.ToString(Eval("HinhAnh")))) %>'
+                                            alt='<%#: Eval("Ten") %>'
+                                            loading="lazy" />
                                     </asp:PlaceHolder>
                                 </td>
 
                                 <td><strong><%#: Eval("Ten") %></strong></td>
                                 <td><%#: Eval("DiaChi") %></td>
                                 <td><%#: Eval("ThanhPho") %></td>
+                              
                                 <td><%#: Convert.ToInt32(Eval("SoSao")) > 0 ? Eval("SoSao", "{0} sao") : "Chưa xếp hạng" %></td>
 
                                 <td>

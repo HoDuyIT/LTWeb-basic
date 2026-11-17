@@ -26,7 +26,7 @@
                 <p>Số người</p>
                 <asp:DropDownList ID="ddlSoNguoi" runat="server" CssClass="search-input">
                     <asp:ListItem Value="">Tất cả</asp:ListItem>
-                    <asp:ListItem Value="1">1 người</asp:ListItem>  
+                    <asp:ListItem Value="1">1 người</asp:ListItem>
                     <asp:ListItem Value="2">2 người</asp:ListItem>
                     <asp:ListItem Value="3">3 người</asp:ListItem>
                     <asp:ListItem Value="4">4 người</asp:ListItem>
@@ -34,26 +34,27 @@
                 </asp:DropDownList>
             </div>
             <div class="btn_search">
-                <asp:Button ID="btnTimKiem" Text="Tìm kiếm" runat="server" CssClass="btn-search" OnClientClick="return checkDate();" OnClick="btnTimKiem_Click" ></asp:Button>
+                <asp:Button ID="btnTimKiem" Text="Tìm kiếm" runat="server" CssClass="btn-search" OnClientClick="return checkDate();" OnClick="btnTimKiem_Click"></asp:Button>
             </div>
         </div>
     </section>
 
 
     <section class="container">
-        <p class="txtSearchTong">Kết quả tìm được là: <asp:Label ID="lblTongSearch" runat="server"></asp:Label></p>
+        <p class="txtSearchTong">Kết quả tìm được là:
+            <asp:Label ID="lblTongSearch" runat="server"></asp:Label></p>
         <div class="grid-card">
             <asp:Repeater ID="rpKhachSan" runat="server">
                 <ItemTemplate>
                     <div class="hotel-card">
                         <div class="hotel-image">
                             <img src='<%# ResolveUrl("~/pages/image/" + Eval("HinhAnh")) %>'
-                                 alt="Ảnh khách sạn" />
+                                alt="Ảnh khách sạn" />
                         </div>
 
                         <!-- Thong tin khach san -->
                         <div class="hotel-info">
-                            <h3> <%# Eval("Ten") %></h3>
+                            <h3><%# Eval("Ten") %></h3>
                             <div class="hotel-stars">
                                 <%# new string('*', Convert.ToInt32(Eval("SoSao"))) %>
                             </div>
@@ -72,10 +73,10 @@
                                 </strong>
                             </div>
 
-                            <a href="../ChiTietPhong/ChiTietPhong.aspx?idKhachSan=<%# Eval("idKhachSan") %>&&idLoaiPhong= <%#Eval("idLoaiPhong") %>" 
+                            <a href="../ChiTietPhong/ChiTietPhong.aspx?idKhachSan=<%# Eval("idKhachSan") %>&amp;idLoaiPhong=<%# Eval("idLoaiPhong") %>"
                                 class="btn-detail"
-                                onclick="return themNgayVaoLink(this);">
-                                >Xem chi tiết</a>
+                                onclick="return themNgayVaoLink(this);">Xem chi tiết
+                            </a>
 
                         </div>
 

@@ -42,7 +42,7 @@ namespace Web_Form_BTL.DAL
             String sql = @" SELECT ks.Id as idKhachSan , ks.Ten, ks.DiaChi, ks.SoSao, ks.HinhAnh, ks.MoTa, 
                         lp.GiaMoiDem AS GiaTu,lp.TenLoai,lp.SoNguoiToiDa,lp.TienNghi,lp.Id as idLoaiPhong 
                         FROM KhachSan ks
-                        LEFT JOIN LoaiPhong lp ON ks.Id = lp.KhachSanId ";
+                        INNER JOIN LoaiPhong lp ON ks.Id = lp.KhachSanId ";
 
             String where = " Where 1=1 ";
 
